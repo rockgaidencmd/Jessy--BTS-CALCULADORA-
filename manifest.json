@@ -3,13 +3,13 @@
   "name": "Calculadora de Diluciones BTS",
   "icons": [
     {
-      "src": "/logo.jpg",
+      "src": "logo.jpg",
       "type": "image/jpeg",
-      "sizes": "512x512",
-      "purpose": "any maskable"
+      "sizes": "192x192 256x256 384x384 512x512",
+      "purpose": "any"
     }
   ],
-  "start_url": ".",
+  "start_url": "./",
   "background_color": "#ffffff",
   "theme_color": "#007bff",
   "display": "standalone",
