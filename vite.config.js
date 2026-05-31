@@ -1,11 +1,7 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/react-swc'
 
 export default defineConfig({
+  base: '/Jessy--BTS-CALCULADORA-/',
   plugins: [react()],
-  base: './',
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-  }
 })
