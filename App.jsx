@@ -235,26 +235,26 @@ export default function App() {
               }}>{m}</span>
             ))}
           </div>
-            {showInstallBtn && (
-                {/* BOTÓN DE INSTALACIÓN INCONDICIONAL */}
-      <button 
-        onClick={() => alert("Para instalar de forma oficial:\n\n1. Toca los 3 puntos de Chrome arriba a la derecha.\n2. Presiona 'Agregar a la pantalla principal'.\n\n¡Listo! Tendrás el ícono en tu menú sin la barra de direcciones de arriba.")}
-        style={{
-          backgroundColor: '#007bff',
-          color: 'white',
-          padding: '12px 20px',
-          border: 'none',
-          borderRadius: '8px',
-          fontWeight: 'bold',
-          margin: '15px auto',
-          display: 'block',
-          cursor: 'pointer',
-          boxShadow: '0px 4px 6px rgba(0,0,0,0.1)',
-          zIndex: 10
-        }}
-      >
-        📲 ¿Cómo Instalar Aplicación Oficial?
-      </button>
+
+                  {/* BOTÓN DE INSTALACIÓN INCONDICIONAL */}
+        <button 
+          onClick={() => alert("Para instalar de forma oficial:\n\n1. Toca los 3 puntos de Chrome arriba a la derecha.\n2. Presiona 'Agregar a la pantalla principal'.\n\n¡Listo! Tendrás el ícono en tu menú sin la barra de direcciones de arriba.")}
+          style={{
+            backgroundColor: '#007bff',
+            color: 'white',
+            padding: '12px 20px',
+            border: 'none',
+            borderRadius: '8px',
+            fontWeight: 'bold',
+            margin: '15px auto',
+            display: 'block',
+            cursor: 'pointer',
+            boxShadow: '0px 4px 6px rgba(0,0,0,0.1)',
+            zIndex: 10
+          }}
+        >
+          📲 ¿Cómo Instalar Aplicación Oficial?
+        </button>
 
           {/* Logo con anillo animado */}
           <div style={{ position:"relative", display:"inline-block", marginBottom:12 }}>
