@@ -151,6 +151,24 @@ export default function App() {
   const [labelDil,  setLabelDil]  = useState(preset.diluida.label);
   const [playing, setPlaying]   = useState(false);
   const audioRef = useRef(null);
+  const [installPrompt, setInstallPrompt] = useState(null);
+const [installed, setInstalled] = useState(false);
+useEffect(() => {
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    setInstallPrompt(e);
+  });
+  window.addEventListener("appinstalled", () => {
+    setInstalled(true);
+    setInstallPrompt(null);
+  });
+}, []);
+
+const handleInstall = async () => {
+  if (!installPrompt) return;
+  await installPrompt.prompt();
+  setInstallPrompt(null);
+};
 
   useEffect(() => {
     if (!audioRef.current) {
@@ -208,7 +226,19 @@ export default function App() {
       padding:"24px 16px", fontFamily:"'Sora','Segoe UI',sans-serif" }}>
       <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
       <Stars/>
-
+{installPrompt && !installed && (
+  <button onClick={handleInstall} style={{
+    position:"fixed", top:16, left:16, zIndex:100,
+    background:"linear-gradient(135deg,#be123c,#7c3aed)",
+    border:"none", borderRadius:24,
+    padding:"10px 18px", cursor:"pointer",
+    color:"#fff", fontWeight:700, fontSize:13,
+    boxShadow:"0 0 20px #7c3aed99",
+    animation:"pulse-ring 2s ease-out infinite",
+  }}>
+    💜 Instalar app
+  </button>
+)}
       {/* Botón música */}
       <button onClick={toggleMusic} title={playing?"Pausar música":"Reproducir Dynamite 🎵"} style={{
         position:"fixed", top:16, right:16, zIndex:100,
