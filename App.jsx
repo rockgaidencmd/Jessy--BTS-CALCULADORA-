@@ -236,7 +236,7 @@ export default function App() {
             ))}
           </div>
             {showInstallBtn && (
-          {/* BOTÓN DE INSTALACIÓN INCONDICIONAL */}
+                {/* BOTÓN DE INSTALACIÓN INCONDICIONAL */}
       <button 
         onClick={() => alert("Para instalar de forma oficial:\n\n1. Toca los 3 puntos de Chrome arriba a la derecha.\n2. Presiona 'Agregar a la pantalla principal'.\n\n¡Listo! Tendrás el ícono en tu menú sin la barra de direcciones de arriba.")}
         style={{
@@ -255,7 +255,7 @@ export default function App() {
       >
         📲 ¿Cómo Instalar Aplicación Oficial?
       </button>
-        
+
           {/* Logo con anillo animado */}
           <div style={{ position:"relative", display:"inline-block", marginBottom:12 }}>
             {/* anillo exterior girando */}
