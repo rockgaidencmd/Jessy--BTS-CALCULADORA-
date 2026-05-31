@@ -117,6 +117,29 @@ function Stars() {
 }
 
 export default function App() {
+    const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [showInstallBtn, setShowInstallBtn] = useState(false);
+
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowInstallBtn(true);
+    };
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      setShowInstallBtn(false);
+    }
+    setDeferredPrompt(null);
+  };
+  
   const [tipo, setTipo] = useState("Salina");
   const preset = PRESETS[tipo];
   const [selConc, setSelConc]   = useState(preset.concentrada);
@@ -212,6 +235,27 @@ export default function App() {
               }}>{m}</span>
             ))}
           </div>
+            {showInstallBtn && (
+    <button 
+      onClick={handleInstallClick}
+      style={{
+        backgroundColor: '#007bff',
+        color: 'white',
+        padding: '12px 20px',
+        border: 'none',
+        borderRadius: '8px',
+        fontWeight: 'bold',
+        margin: '15px auto',
+        display: 'block',
+        cursor: 'pointer',
+        boxShadow: '0px 4px 6px rgba(0,0,0,0.1)',
+        zIndex: 10
+      }}
+    >
+      📲 Instalar Aplicación Oficial
+    </button>
+  )}
+          
 
           {/* Logo con anillo animado */}
           <div style={{ position:"relative", display:"inline-block", marginBottom:12 }}>
