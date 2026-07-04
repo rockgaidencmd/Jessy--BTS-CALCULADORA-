@@ -1,4 +1,4 @@
-const CACHE = "aspa-army-v2";
+const CACHE = "aspa-army-v3";
 const BASE = "/Jessy--BTS-CALCULADORA-/";
 const ASSETS = [
   BASE,
@@ -26,8 +26,30 @@ self.addEventListener("activate", e => {
 });
 
 self.addEventListener("fetch", e => {
-  if (e.request.method !== "GET") return;
+  const req = e.request;
+  if (req.method !== "GET") return;
+
+  const isNavigation =
+    req.mode === "navigate" ||
+    (req.headers.get("accept") || "").includes("text/html");
+
+  if (isNavigation) {
+    // Network-first para el HTML: así el index siempre apunta al JS con el
+    // hash más reciente. Si no hay red, cae al cache (offline).
+    e.respondWith(
+      fetch(req)
+        .then(res => {
+          const copy = res.clone();
+          caches.open(CACHE).then(c => c.put(req, copy));
+          return res;
+        })
+        .catch(() => caches.match(req).then(c => c || caches.match(BASE)))
+    );
+    return;
+  }
+
+  // Cache-first para assets estáticos (JS/CSS/imágenes con hash).
   e.respondWith(
-    caches.match(e.request).then(cached => cached || fetch(e.request))
+    caches.match(req).then(cached => cached || fetch(req))
   );
 });
