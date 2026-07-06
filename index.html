@@ -10,9 +10,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Aspa ARMY" />
-    <link rel="manifest" href="/Jessy--BTS-CALCULADORA-/manifest.json" />
-    <link rel="icon" href="/Jessy--BTS-CALCULADORA-/favicon.ico" />
-    <link rel="apple-touch-icon" href="/Jessy--BTS-CALCULADORA-/icon-192x192.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon" href="./icon-192x192.png" />
   </head>
   <body>
     <div id="root"></div>
@@ -20,7 +20,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/Jessy--BTS-CALCULADORA-/sw.js')
+          navigator.serviceWorker.register('./sw.js')
             .then(() => console.log('💜 SW registrado'))
             .catch(err => console.log('SW error:', err));
         });

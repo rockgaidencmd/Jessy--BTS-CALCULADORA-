@@ -2,33 +2,33 @@
   "name": "Regla del Aspa 💜 Jessy ARMY",
   "short_name": "Aspa ARMY",
   "description": "Calculadora de diluciones IV - Método de Aligación",
-  "start_url": "/Jessy--BTS-CALCULADORA-/",
-  "scope": "/Jessy--BTS-CALCULADORA-/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0d0015",
   "theme_color": "#7c3aed",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/Jessy--BTS-CALCULADORA-/icon-192x192.png",
+      "src": "./icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/Jessy--BTS-CALCULADORA-/icon-512x512.png",
+      "src": "./icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/Jessy--BTS-CALCULADORA-/icon-192x192.png",
+      "src": "./icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/Jessy--BTS-CALCULADORA-/icon-512x512.png",
+      "src": "./icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

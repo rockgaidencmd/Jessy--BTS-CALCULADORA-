@@ -1,5 +1,7 @@
-const CACHE = "aspa-army-v3";
-const BASE = "/Jessy--BTS-CALCULADORA-/";
+const CACHE = "aspa-army-v4";
+// Base derivada de la URL del propio sw.js: funciona igual en GitHub Pages
+// (subcarpeta) y en Vercel (raíz del dominio).
+const BASE = new URL("./", self.location).pathname;
 const ASSETS = [
   BASE,
   BASE + "index.html",
